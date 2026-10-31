@@ -1,0 +1,23 @@
+{
+  "_comment": "Text the pet shows about you. Dot matrix is 80x40 = 13 characters per line. Edit, commit, and the Refresh Tamagotchi workflow redraws it.",
+
+  "_handle": "Also the shell logo. 13 characters fits comfortably.",
+  
+
+  "_theme": "Shell colour: bolt (sky blue, pink lightning), candy (pink), mint (pale green), noir (black) or sunset (orange). The screen follows the viewer's GitHub light/dark setting.",
+  "theme": "noir",
+
+  "_nowPlaying": "The LIGHT screen, one entry per full cycle. title: 13 chars. sub: ~26 chars, wraps to 2 lines.",
+  "nowPlaying": [
+    { "title": "SMUK AI", "sub": "Agent message routing" },
+    { "title": "SERF LAND", "sub": "Hex-grid browser RTS" },
+    { "title": "SITE REHAB", "sub": "Sites for local biz" }
+  ],
+
+  "_status": "The MEDICINE screen. label: 13 chars. value: ~26 chars, wraps to 2 lines.",
+  "status": [
+    { "label": "DAY JOB", "value": "AI infra at Google" },
+    { "label": "SHOP", "value": "Welding, CNC, 3D print" },
+    { "label": "AGENTS", "value": "Vibe coded, run 24/7" }
+  ]
+}
