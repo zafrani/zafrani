@@ -1,16 +1,21 @@
-## Hi there 👋
+<h1 align="center">Hi, I'm Dave 👋</h1>
 
-<!--
-**zafrani/zafrani** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<p align="center">Building <a href="https://smuk.ai">SMUK AI</a> · <a href="https://serf.land">Serf Land</a> · <a href="https://site.rehab">Site Rehab</a></p>
 
-Here are some ideas to get you started:
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=zafrani&theme=tokyonight" alt="Profile details" />
+</p>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=zafrani&theme=tokyonight" alt="Stats" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=zafrani&theme=tokyonight&utcOffset=-4" alt="Commits by hour" />
+</p>
+
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=zafrani&theme=tokyonight" alt="Repos per language" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=zafrani&theme=tokyonight" alt="Most commit language" />
+</p>
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com/?user=zafrani&theme=tokyonight&hide_border=true&disable_animations=true" alt="GitHub streak" />
+</p>
