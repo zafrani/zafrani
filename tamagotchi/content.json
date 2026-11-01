@@ -2,7 +2,7 @@
   "_comment": "Text the pet shows about you. Dot matrix is 80x40 = 13 characters per line. Edit, commit, and the Refresh Tamagotchi workflow redraws it.",
 
   "_handle": "Also the shell logo. 13 characters fits comfortably.",
-  
+  "handle": "zafrani",
 
   "_theme": "Shell colour: bolt (sky blue, pink lightning), candy (pink), mint (pale green), noir (black) or sunset (orange). The screen follows the viewer's GitHub light/dark setting.",
   "theme": "noir",
