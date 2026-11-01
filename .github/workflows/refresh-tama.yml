@@ -1,0 +1,68 @@
+# Tamagotchi pixel pet (gogeorge/readme-retro-stats). The renderer is a zero-
+# dependency Node script that lives upstream; we check it out at a pinned commit,
+# feed it tamagotchi/content.json, and commit only the two rendered SVGs.
+#
+# Hunger = current commit streak, happiness = active days in the last 30, life
+# stage = contributions this year. Stop committing and it gets sick.
+name: Refresh Tamagotchi
+
+on:
+  schedule:
+    - cron: "17 6 * * *" # ~02:17 ET daily
+  push:
+    branches: [main]
+    paths:
+      - "tamagotchi/content.json"
+      - ".github/workflows/refresh-tama.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-tama
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Check out the renderer (pinned)
+        uses: actions/checkout@v6
+        with:
+          repository: gogeorge/readme-retro-stats
+          ref: 818f43d40b2236b74505add54a856a1b38e1f127
+          path: _retro
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Render both modes
+        env:
+          # PROFILE_PAT (read:user) unlocks the real contribution calendar, which
+          # decides the pet's life stage. Falls back to GITHUB_TOKEN otherwise.
+          GH_TOKEN: ${{ secrets.PROFILE_PAT || secrets.GITHUB_TOKEN }}
+          GH_LOGIN: ${{ github.repository_owner }}
+        run: |
+          cp tamagotchi/content.json _retro/tamagotchi/content.json
+          node _retro/tamagotchi/scripts/build.mjs
+          mkdir -p tamagotchi/assets
+          cp _retro/tamagotchi/assets/tama-dark.svg _retro/tamagotchi/assets/tama-light.svg tamagotchi/assets/
+          rm -rf _retro
+
+      - name: Commit if the screens changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tamagotchi/assets/tama-dark.svg tamagotchi/assets/tama-light.svg
+          if git diff --staged --quiet; then
+            echo "No change."
+          else
+            git commit -m "chore: refresh Tamagotchi screens"
+            git pull --rebase
+            git push
+          fi
