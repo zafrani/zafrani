@@ -1,5 +1,6 @@
-# lowlighter/metrics — one composable card: isometric calendar, languages, coding
-# habits, lines changed, notable contributions, achievements.
+# lowlighter/metrics — one composable card: isometric calendar, languages, lines
+# changed, notable contributions. (habits + achievements plugins are disabled: both
+# currently crash on GitHub API edge cases and render as error rows.)
 #
 # Needs a repo secret named PROFILE_PAT (classic personal access token; `read:user`
 # is enough for public data, add `repo` to count private repos too). Until the
@@ -39,7 +40,7 @@ jobs:
           template: classic
           base: header, activity, community, repositories, metadata
           config_timezone: America/New_York
-          config_order: base.header, isocalendar, languages, habits, lines, notable, achievements, base.activity+community, base.repositories, base.metadata
+          config_order: base.header, isocalendar, languages, lines, notable, base.activity+community, base.repositories, base.metadata
 
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
@@ -49,15 +50,6 @@ jobs:
           plugin_languages_details: bytes-size, percentage
           plugin_languages_limit: 8
 
-          plugin_habits: yes
-          plugin_habits_from: 200
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-
           plugin_lines: yes
 
           plugin_notable: yes
-
-          plugin_achievements: yes
-          plugin_achievements_threshold: C
-          plugin_achievements_display: compact
